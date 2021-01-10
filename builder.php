@@ -15,7 +15,7 @@ $excludePackages = [
 
 $branch = $argv[1] ?? null;
 
-if ($branch === null || ! isset($branchToVersion[$branch])) {
+if ($branch === null || ! in_array($branch, $branches, true)) {
     throw new \RuntimeException('Invalid branch "' . $branch . '"');
 }
 
