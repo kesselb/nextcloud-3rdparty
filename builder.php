@@ -1,10 +1,16 @@
 <?php
 
 $branchToVersion = [
-    'master'   => 'dev-master',
+    'master'   => 'dev-main',
     'stable20' => '20',
     'stable19' => '19',
     'stable18' => '18',
+];
+
+$excludePackages = [
+    'symfony/event-dispatcher-contracts',
+    'symfony/service-contracts',
+    'symfony/translation-contracts',
 ];
 
 $branch = $argv[1] ?? null;
@@ -25,7 +31,11 @@ $packages = $data['packages'];
 $replace  = [];
 
 foreach ($packages as $package) {
-    $replace[strtolower($package['name'])] = $package['version'];
+    $packageName = strtolower($package['name']);
+    if (in_array($packageName, $excludePackages, true)) {
+        continue;
+    }
+    $replace[$packageName] = $package['version'];
 }
 
 $composer            = [];
@@ -35,7 +45,9 @@ $composer['license'] = 'MIT';
 if (isset($data['platform']['php'])) {
     $composer['require'] = ['php' => $data['platform']['php']];
 }
-$composer['replace'] = $replace;
+$composer['replace']              = $replace;
+$composer['non-feature-branches'] = ['main', 'stable*'];
+
 
 try {
     file_put_contents('composer.json', json_encode($composer, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT));
