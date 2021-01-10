@@ -90,5 +90,9 @@
         "web-auth\/cose-lib": "v3.1.1",
         "web-auth\/metadata-service": "v3.1.1",
         "web-auth\/webauthn-lib": "v3.1.1"
-    }
+    },
+    "non-feature-branches": [
+        "main",
+        "stable*"
+    ]
 }

@@ -35,7 +35,9 @@ $composer['license'] = 'MIT';
 if (isset($data['platform']['php'])) {
     $composer['require'] = ['php' => $data['platform']['php']];
 }
-$composer['replace'] = $replace;
+$composer['replace']              = $replace;
+$composer['non-feature-branches'] = ['main', 'stable*'];
+
 
 try {
     file_put_contents('composer.json', json_encode($composer, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT));
