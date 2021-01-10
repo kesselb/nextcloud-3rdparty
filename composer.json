@@ -1,6 +1,7 @@
 {
     "name": "kesselb\/nextcloud-3rdparty",
     "type": "metapackage",
+    "license": "MIT",
     "require": {
         "php": "^7.3|^8.0"
     },
