@@ -1,10 +1,15 @@
 <?php
 
 $branchToVersion = [
-    'master'   => 'dev-master',
+    'master'   => 'dev-main',
     'stable20' => '20',
     'stable19' => '19',
     'stable18' => '18',
+];
+
+$excludePackages = [
+    'symfony/event-dispatcher-contracts',
+    'symfony/translation-contracts',
 ];
 
 $branch = $argv[1] ?? null;
@@ -25,7 +30,11 @@ $packages = $data['packages'];
 $replace  = [];
 
 foreach ($packages as $package) {
-    $replace[strtolower($package['name'])] = $package['version'];
+    $packageName = strtolower($package['name']);
+    if (in_array($packageName, $excludePackages, true)) {
+        continue;
+    }
+    $replace[$packageName] = $package['version'];
 }
 
 $composer            = [];
