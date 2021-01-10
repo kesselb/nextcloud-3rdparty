@@ -28,9 +28,10 @@ foreach ($packages as $package) {
     $replace[strtolower($package['name'])] = $package['version'];
 }
 
-$composer         = [];
-$composer['name'] = 'kesselb/nextcloud-3rdparty';
-$composer['type'] = 'metapackage';
+$composer            = [];
+$composer['name']    = 'kesselb/nextcloud-3rdparty';
+$composer['type']    = 'metapackage';
+$composer['license'] = 'MIT';
 if (isset($data['platform']['php'])) {
     $composer['require'] = ['php' => $data['platform']['php']];
 }
