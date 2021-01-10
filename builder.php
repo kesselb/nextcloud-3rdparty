@@ -1,9 +1,10 @@
 <?php
 
-$branchToVersion = [
-    'stable20' => '20.0.0',
-    'stable19' => '19.0.0',
-    'stable18' => '18.0.0',
+$branches = [
+    'master',
+    'stable20',
+    'stable19',
+    'stable18',
 ];
 
 $excludePackages = [
@@ -14,7 +15,7 @@ $excludePackages = [
 
 $branch = $argv[1] ?? null;
 
-if ($branch === null || ($branch !== 'master' && ! isset($branchToVersion[$branch]))) {
+if ($branch === null || ! isset($branchToVersion[$branch])) {
     throw new \RuntimeException('Invalid branch "' . $branch . '"');
 }
 
@@ -37,11 +38,8 @@ foreach ($packages as $package) {
     $replace[$packageName] = $package['version'];
 }
 
-$composer         = [];
-$composer['name'] = 'kesselb/nextcloud-3rdparty';
-if (isset($branchToVersion[$branch])) {
-    $composer['version'] = $branchToVersion[$branch];
-}
+$composer            = [];
+$composer['name']    = 'kesselb/nextcloud-3rdparty';
 $composer['type']    = 'metapackage';
 $composer['license'] = 'MIT';
 if (isset($data['platform']['php'])) {
