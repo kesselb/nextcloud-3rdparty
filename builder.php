@@ -9,6 +9,7 @@ $branchToVersion = [
 
 $excludePackages = [
     'symfony/event-dispatcher-contracts',
+    'symfony/service-contracts',
     'symfony/translation-contracts',
 ];
 
