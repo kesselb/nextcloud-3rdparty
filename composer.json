@@ -72,7 +72,6 @@
         "swiftmailer\/swiftmailer": "v6.2.4",
         "symfony\/console": "v4.4.18",
         "symfony\/event-dispatcher": "v4.4.18",
-        "symfony\/event-dispatcher-contracts": "v1.1.9",
         "symfony\/polyfill-ctype": "v1.20.0",
         "symfony\/polyfill-iconv": "v1.20.0",
         "symfony\/polyfill-intl-grapheme": "v1.22.0",
@@ -84,9 +83,7 @@
         "symfony\/polyfill-php80": "v1.20.0",
         "symfony\/process": "v4.4.18",
         "symfony\/routing": "v4.4.18",
-        "symfony\/service-contracts": "v2.2.0",
         "symfony\/translation": "v4.4.18",
-        "symfony\/translation-contracts": "v2.3.0",
         "web-auth\/cose-lib": "v3.1.1",
         "web-auth\/metadata-service": "v3.1.1",
         "web-auth\/webauthn-lib": "v3.1.1"
