@@ -25,7 +25,7 @@ $packages = $data['packages'];
 $replace  = [];
 
 foreach ($packages as $package) {
-    $replace[$package['name']] = $package['version'];
+    $replace[strtolower($package['name'])] = $package['version'];
 }
 
 $composer         = [];
