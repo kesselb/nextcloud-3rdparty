@@ -1,6 +1,5 @@
 {
     "name": "kesselb\/nextcloud-3rdparty",
-    "version": "20.0.0",
     "type": "metapackage",
     "license": "MIT",
     "require": {
